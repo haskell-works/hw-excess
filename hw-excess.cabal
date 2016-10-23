@@ -1,9 +1,9 @@
 name:                   hw-excess
 version:                0.0.0.1
-synopsis:               Conduits for tokenizing streams.
+synopsis:               Excess
 description:            Please see README.md
 homepage:               http://github.com/haskell-works/hw-excess#readme
-license:                MIT
+license:                BSD3
 license-file:           LICENSE
 author:                 John Ky
 maintainer:             newhoggy@gmail.com
