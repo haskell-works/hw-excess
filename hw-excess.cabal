@@ -21,9 +21,9 @@ library
                       , HaskellWorks.Data.Excess.MinMaxExcess0
                       , HaskellWorks.Data.Excess.MinMaxExcess1
   build-depends:        base                          >= 4          && < 5
-                      , hw-bits                       >= 0.3.0.0
-                      , hw-prim                       >= 0.3.0.5
-                      , hw-rankselect-base            >= 0.1.0.0
+                      , hw-bits                       >= 0.4.0.0
+                      , hw-prim                       >= 0.4.0.0
+                      , hw-rankselect-base            >= 0.2.0.0
                       , safe
                       , vector
 
@@ -38,8 +38,8 @@ test-suite hw-excess-test
                       , HaskellWorks.Data.Excess.MinMaxExcess1Spec
   build-depends:        base                          >= 4          && < 5
                       , hspec
-                      , hw-bits                       >= 0.3.0.0
-                      , hw-prim                       >= 0.3.0.5
+                      , hw-bits                       >= 0.4.0.0
+                      , hw-prim                       >= 0.4.0.0
                       , hw-excess
                       , QuickCheck
                       , vector
