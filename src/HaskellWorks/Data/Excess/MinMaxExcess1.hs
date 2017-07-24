@@ -86,28 +86,28 @@ instance MinMaxExcess1 Word64 where
   {-# INLINE minMaxExcess1 #-}
 
 instance MinMaxExcess1 (DVS.Vector Word8) where
-  minMaxExcess1 = DVS.foldl gen (0, 0, 0)
+  minMaxExcess1 = DVS.foldl' gen (0, 0, 0)
     where gen :: (MinExcess, Excess, MaxExcess) -> Word8 -> (MinExcess, Excess, MaxExcess)
           gen (minE, e, maxE) w = let (wMinE, wE, wMaxE) = minMaxExcess1 w  in
                                   (minE `min` (wMinE + e), e + wE, maxE `max` (wMaxE + e))
   {-# INLINE minMaxExcess1 #-}
 
 instance MinMaxExcess1 (DVS.Vector Word16) where
-  minMaxExcess1 = DVS.foldl gen (0, 0, 0)
+  minMaxExcess1 = DVS.foldl' gen (0, 0, 0)
     where gen :: (MinExcess, Excess, MaxExcess) -> Word16 -> (MinExcess, Excess, MaxExcess)
           gen (minE, e, maxE) w = let (wMinE, wE, wMaxE) = minMaxExcess1 w  in
                                   (minE `min` (wMinE + e), e + wE, maxE `max` (wMaxE + e))
   {-# INLINE minMaxExcess1 #-}
 
 instance MinMaxExcess1 (DVS.Vector Word32) where
-  minMaxExcess1 = DVS.foldl gen (0, 0, 0)
+  minMaxExcess1 = DVS.foldl' gen (0, 0, 0)
     where gen :: (MinExcess, Excess, MaxExcess) -> Word32 -> (MinExcess, Excess, MaxExcess)
           gen (minE, e, maxE) w = let (wMinE, wE, wMaxE) = minMaxExcess1 w  in
                                   (minE `min` (wMinE + e), e + wE, maxE `max` (wMaxE + e))
   {-# INLINE minMaxExcess1 #-}
 
 instance MinMaxExcess1 (DVS.Vector Word64) where
-  minMaxExcess1 = DVS.foldl gen (0, 0, 0)
+  minMaxExcess1 = DVS.foldl' gen (0, 0, 0)
     where gen :: (MinExcess, Excess, MaxExcess) -> Word64 -> (MinExcess, Excess, MaxExcess)
           gen (minE, e, maxE) w = let (wMinE, wE, wMaxE) = minMaxExcess1 w  in
                                   (minE `min` (wMinE + e), e + wE, maxE `max` (wMaxE + e))
