@@ -20,11 +20,13 @@ library
                       , HaskellWorks.Data.Excess.Excess1
                       , HaskellWorks.Data.Excess.MinMaxExcess0
                       , HaskellWorks.Data.Excess.MinMaxExcess1
+                      , HaskellWorks.Data.Excess.Triplet
   build-depends:        base                          >= 4          && < 5
                       , hw-bits                       >= 0.4.0.0
                       , hw-prim                       >= 0.4.0.0
                       , hw-rankselect-base            >= 0.2.0.0
                       , safe
+                      , storable-record
                       , vector
 
   default-language:     Haskell2010
