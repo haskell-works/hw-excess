@@ -1,14 +1,15 @@
-{-# LANGUAGE FlexibleInstances     #-}
+{-# LANGUAGE FlexibleInstances #-}
 
 module HaskellWorks.Data.Excess.Excess1
     ( Excess1(..)
     ) where
 
-import           Data.Word
+import Data.Word
+import HaskellWorks.Data.Positioning
+import HaskellWorks.Data.RankSelect.Base.Rank0
+import HaskellWorks.Data.RankSelect.Base.Rank1
+
 import qualified Data.Vector.Storable as DVS
-import           HaskellWorks.Data.Positioning
-import           HaskellWorks.Data.RankSelect.Base.Rank0
-import           HaskellWorks.Data.RankSelect.Base.Rank1
 
 class Excess1 v where
   excess1 :: v -> Count -> Int
