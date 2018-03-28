@@ -1,0 +1,47 @@
+name: hw-excess
+version: '0.2.0.1'
+synopsis: Excess
+description: Please see README.md
+category: Data, Conduit
+author: John Ky
+maintainer: newhoggy@gmail.com
+copyright: 2016 John Ky
+license: BSD3
+github: haskell-works/hw-excess
+homepage: http://github.com/haskell-works/hw-excess#readme
+extra-source-files:
+- README.md
+ghc-options: -Wall
+dependencies:
+- base >=4 && <5
+- hw-bits >=0.4.0.0
+- hw-prim >=0.4.0.0
+- vector
+library:
+  source-dirs: src
+  ghc-options:
+  - -O2
+  - -msse4.2
+  exposed-modules:
+  - HaskellWorks.Data.Excess
+  - HaskellWorks.Data.Excess.Excess0
+  - HaskellWorks.Data.Excess.Excess1
+  - HaskellWorks.Data.Excess.MinMaxExcess0
+  - HaskellWorks.Data.Excess.MinMaxExcess1
+  - HaskellWorks.Data.Excess.Triplet
+  dependencies:
+  - hw-rankselect-base >=0.2.0.0
+  - safe
+  - storable-record
+tests:
+  hw-excess-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hspec
+    - hw-excess
+    - QuickCheck
