@@ -13,10 +13,10 @@ extra-source-files:
 - README.md
 ghc-options: -Wall
 dependencies:
-- base >=4 && <5
-- hw-bits >=0.4.0.0
-- hw-prim >=0.4.0.0
-- vector
+- base >=4.8 && <5
+- hw-bits >=0.4.0.0 && < 0.8
+- hw-prim >=0.4.0.0 && < 0.7
+- vector >= 0.12 && < 0.13
 library:
   source-dirs: src
   ghc-options:
@@ -30,9 +30,9 @@ library:
   - HaskellWorks.Data.Excess.MinMaxExcess1
   - HaskellWorks.Data.Excess.Triplet
   dependencies:
-  - hw-rankselect-base >=0.2.0.0
-  - safe
-  - storable-record
+  - hw-rankselect-base >=0.2.0.0 && < 0.4
+  - safe >= 0.2 && < 0.4
+  - storable-record >= 0.0.4 && < 0.1
 tests:
   hw-excess-test:
     main: Spec.hs
@@ -42,6 +42,8 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - hspec
+    - hspec >= 2.5 && < 2.6
     - hw-excess
-    - QuickCheck
+    - QuickCheck >= 2.10 && < 2.12
+    verbatim:
+      build-tool-depends: hspec-discover:hspec-discover
