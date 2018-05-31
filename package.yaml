@@ -43,7 +43,7 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - hspec >= 2.5 && < 2.6
+    - hspec >= 2.3 && < 2.6
     - hw-excess
     - QuickCheck >= 2.10 && < 2.12
     verbatim:

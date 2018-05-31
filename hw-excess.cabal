@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 7652e8c54dd02ced7630f8898170371b93219befae4b87a314bd207ff2c78db9
+-- hash: a19adc8e177dc4305f204380816fa30c6018f20a570076784175aa6dbb6c1f87
 
 name:           hw-excess
 version:        0.2.0.1
@@ -63,7 +63,7 @@ test-suite hw-excess-test
   build-depends:
       QuickCheck >=2.10 && <2.12
     , base >=4.8 && <5
-    , hspec >=2.5 && <2.6
+    , hspec >=2.3 && <2.6
     , hw-bits >=0.4.0.0 && <0.8
     , hw-excess
     , hw-prim >=0.4.0.0 && <0.7
