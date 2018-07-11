@@ -4,10 +4,9 @@ module HaskellWorks.Data.Excess.Triplet
   ( Triplet(..)
   ) where
 
-import Control.Applicative (liftA3)
+import Control.Applicative (pure)
+import Foreign.Ptr         (castPtr)
 import Foreign.Storable    (Storable (..))
-
-import qualified Foreign.Storable.Record as Store
 
 data Triplet = Triplet
   { tripletMinExcess :: !Int
@@ -16,13 +15,15 @@ data Triplet = Triplet
   } deriving (Eq, Show)
 
 instance Storable Triplet where
-  sizeOf    = Store.sizeOf storeTriple
-  alignment = Store.alignment storeTriple
-  peek      = Store.peek storeTriple
-  poke      = Store.poke storeTriple
+  sizeOf _    = sizeOf (0 :: Int) * 3
+  alignment _ = alignment (0 :: Int)
+  peek p      = do let q = castPtr p
+                   a <- peek q
+                   b <- peekElemOff q 1
+                   c <- peekElemOff q 2
+                   pure (Triplet a b c)
+  poke p t    = do let q = castPtr p
+                   poke q (tripletMinExcess t)
+                   pokeElemOff q 1 (tripletAllExcess t)
+                   pokeElemOff q 2 (tripletMaxExcess t)
 
-storeTriple :: Store.Dictionary Triplet
-storeTriple = Store.run $ liftA3 Triplet
-  (Store.element tripletMinExcess)
-  (Store.element tripletAllExcess)
-  (Store.element tripletMaxExcess)

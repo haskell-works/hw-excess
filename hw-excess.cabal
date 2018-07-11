@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a19adc8e177dc4305f204380816fa30c6018f20a570076784175aa6dbb6c1f87
+-- hash: bc25233277a8d6633c4f76d8daa23c803a16a63dba73652c19f85d2946cd0f40
 
 name:           hw-excess
 version:        0.2.0.1
@@ -46,7 +46,6 @@ library
     , hw-prim >=0.4.0.0 && <0.7
     , hw-rankselect-base >=0.2.0.0 && <0.4
     , safe >=0.2 && <0.4
-    , storable-record >=0.0.3 && <0.1
     , vector >=0.12 && <0.13
   default-language: Haskell2010
 
