@@ -32,7 +32,7 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess0Spec" $ do
       let Triplet minE0 e0 _ = minMaxExcess0 w0
       let Triplet minE1 _  _ = minMaxExcess0 w1
       let Triplet minE2 _  _ = minMaxExcess0 w2
-      assert $ minE2 == minE0 `min` (minE1 + e0)
+      minE2 === minE0 `min` (minE1 + e0)
     it "maxE2 == maxE0 `max` (maxE1 + e0)" $ requireProperty $ do
       w0 <- forAll $ G.word8 R.constantBounded
       w1 <- forAll $ G.word8 R.constantBounded
@@ -40,7 +40,7 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess0Spec" $ do
       let Triplet _ e0 maxE0 = minMaxExcess0 w0
       let Triplet _ _  maxE1 = minMaxExcess0 w1
       let Triplet _ _  maxE2 = minMaxExcess0 w2
-      assert $ maxE2 == maxE0 `max` (maxE1 + e0)
+      maxE2 === maxE0 `max` (maxE1 + e0)
     it "minE2 == minE0 `min` (minE1 + e0) via vector" $ requireProperty $ do
       w0 <- forAll $ G.word8 R.constantBounded
       w1 <- forAll $ G.word8 R.constantBounded
@@ -48,7 +48,7 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess0Spec" $ do
       let Triplet minE0 e0 _ = minMaxExcess0 w0
       let Triplet minE1 _  _ = minMaxExcess0 w1
       let Triplet minE2 _  _ = minMaxExcess0 w2
-      assert $ minE2 == minE0 `min` (minE1 + e0)
+      minE2 === minE0 `min` (minE1 + e0)
     it "maxE2 == maxE0 `max` (maxE1 + e0) via vector" $ requireProperty $ do
       w0 <- forAll $ G.word8 R.constantBounded
       w1 <- forAll $ G.word8 R.constantBounded
@@ -56,7 +56,7 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess0Spec" $ do
       let Triplet _ e0 maxE0 = minMaxExcess0 w0
       let Triplet _ _  maxE1 = minMaxExcess0 w1
       let Triplet _ _  maxE2 = minMaxExcess0 w2
-      assert $ maxE2 == maxE0 `max` (maxE1 + e0)
+      maxE2 === maxE0 `max` (maxE1 + e0)
   describe "For Word16" $ do
     it "Excess should be between min excess and max excess" $ requireProperty $ do
       w <- forAll $ G.word16 R.constantBounded
@@ -69,7 +69,7 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess0Spec" $ do
       let Triplet minE0 e0 _ = minMaxExcess0 w0
       let Triplet minE1 _  _ = minMaxExcess0 w1
       let Triplet minE2 _  _ = minMaxExcess0 w2
-      assert $ minE2 == minE0 `min` (minE1 + e0)
+      minE2 === minE0 `min` (minE1 + e0)
     it "maxE2 == maxE0 `max` (maxE1 + e0)" $ requireProperty $ do
       w0 <- forAll $ G.word16 R.constantBounded
       w1 <- forAll $ G.word16 R.constantBounded
@@ -77,7 +77,7 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess0Spec" $ do
       let Triplet _ e0 maxE0 = minMaxExcess0 w0
       let Triplet _ _  maxE1 = minMaxExcess0 w1
       let Triplet _ _  maxE2 = minMaxExcess0 w2
-      assert $ maxE2 == maxE0 `max` (maxE1 + e0)
+      maxE2 === maxE0 `max` (maxE1 + e0)
     it "minE2 == minE0 `min` (minE1 + e0) via vector" $ requireProperty $ do
       w0 <- forAll $ G.word16 R.constantBounded
       w1 <- forAll $ G.word16 R.constantBounded
@@ -85,7 +85,7 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess0Spec" $ do
       let Triplet minE0 e0 _ = minMaxExcess0 w0
       let Triplet minE1 _  _ = minMaxExcess0 w1
       let Triplet minE2 _  _ = minMaxExcess0 w2
-      assert $ minE2 == minE0 `min` (minE1 + e0)
+      minE2 === minE0 `min` (minE1 + e0)
     it "maxE2 == maxE0 `max` (maxE1 + e0) via vector" $ requireProperty $ do
       w0 <- forAll $ G.word16 R.constantBounded
       w1 <- forAll $ G.word16 R.constantBounded
@@ -93,7 +93,7 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess0Spec" $ do
       let Triplet _ e0 maxE0 = minMaxExcess0 w0
       let Triplet _ _  maxE1 = minMaxExcess0 w1
       let Triplet _ _  maxE2 = minMaxExcess0 w2
-      assert $ maxE2 == maxE0 `max` (maxE1 + e0)
+      maxE2 === maxE0 `max` (maxE1 + e0)
     describe "For Word32" $ do
       it "Excess should be between min excess and max excess" $ requireProperty $ do
         w <- forAll $ G.word32 R.constantBounded
@@ -107,7 +107,7 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess0Spec" $ do
         let Triplet minE0 e0 _ = minMaxExcess0 w0
         let Triplet minE1 _  _ = minMaxExcess0 w1
         let Triplet minE2 _  _ = minMaxExcess0 w2
-        assert $ minE2 == minE0 `min` (minE1 + e0)
+        minE2 === minE0 `min` (minE1 + e0)
       it "maxE2 == maxE0 `max` (maxE1 + e0)" $ requireProperty $ do
         w0 <- forAll $ G.word32 R.constantBounded
         w1 <- forAll $ G.word32 R.constantBounded
@@ -116,7 +116,7 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess0Spec" $ do
         let Triplet _ e0 maxE0 = minMaxExcess0 w0
         let Triplet _ _  maxE1 = minMaxExcess0 w1
         let Triplet _ _  maxE2 = minMaxExcess0 w2
-        assert $ maxE2 == maxE0 `max` (maxE1 + e0)
+        maxE2 === maxE0 `max` (maxE1 + e0)
       it "minE2 == minE0 `min` (minE1 + e0) via vector" $ requireProperty $ do
         w0 <- forAll $ G.word32 R.constantBounded
         w1 <- forAll $ G.word32 R.constantBounded
@@ -125,7 +125,7 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess0Spec" $ do
         let Triplet minE0 e0 _ = minMaxExcess0 w0
         let Triplet minE1 _  _ = minMaxExcess0 w1
         let Triplet minE2 _  _ = minMaxExcess0 w2
-        assert $ minE2 == minE0 `min` (minE1 + e0)
+        minE2 === minE0 `min` (minE1 + e0)
       it "maxE2 == maxE0 `max` (maxE1 + e0) via vector" $ requireProperty $ do
         w0 <- forAll $ G.word32 R.constantBounded
         w1 <- forAll $ G.word32 R.constantBounded
@@ -134,7 +134,7 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess0Spec" $ do
         let Triplet _ e0 maxE0 = minMaxExcess0 w0
         let Triplet _ _  maxE1 = minMaxExcess0 w1
         let Triplet _ _  maxE2 = minMaxExcess0 w2
-        assert $ maxE2 == maxE0 `max` (maxE1 + e0)
+        maxE2 === maxE0 `max` (maxE1 + e0)
   describe "For Word64" $ do
     it "Excess should be between min excess and max excess" $ requireProperty $ do
       w <- forAll $ G.word64 R.constantBounded
@@ -147,7 +147,7 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess0Spec" $ do
       let Triplet minE0 e0 _ = minMaxExcess0 w0
       let Triplet minE1 _  _ = minMaxExcess0 w1
       let Triplet minE2 _  _ = minMaxExcess0 w2
-      assert $ minE2 == minE0 `min` (minE1 + e0)
+      minE2 === minE0 `min` (minE1 + e0)
     it "maxE2 == maxE0 `max` (maxE1 + e0) via vector" $ requireProperty $ do
       w0 <- forAll $ G.word64 R.constantBounded
       w1 <- forAll $ G.word64 R.constantBounded
@@ -155,7 +155,7 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess0Spec" $ do
       let Triplet _ e0 maxE0 = minMaxExcess0 w0
       let Triplet _ _  maxE1 = minMaxExcess0 w1
       let Triplet _ _  maxE2 = minMaxExcess0 w2
-      assert $ maxE2 == maxE0 `max` (maxE1 + e0)
+      maxE2 === maxE0 `max` (maxE1 + e0)
     describe "Equivalent to native implementation" $ do
       it "For Word8" $ requireProperty $ do
         w <- forAll $ G.word8 R.constantBounded
