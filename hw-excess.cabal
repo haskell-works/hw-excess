@@ -21,15 +21,17 @@ source-repository head
   type: git
   location: https://github.com/haskell-works/hw-excess
 
-common base               { build-depends: base               >= 4.8      &&  < 5     }
+common base                 { build-depends: base               >= 4.8      &&  < 5     }
 
-common QuickCheck         { build-depends: QuickCheck         >= 2.10     && < 2.12   }
-common hspec              { build-depends: hspec              >= 2.3      && < 2.6    }
-common hw-bits            { build-depends: hw-bits            >= 0.4.0.0  && < 0.8    }
-common hw-prim            { build-depends: hw-prim            >= 0.4.0.0  && < 0.8    }
-common hw-rankselect-base { build-depends: hw-rankselect-base >= 0.2.0.0  && < 0.4    }
-common safe               { build-depends: safe               >= 0.2      && < 0.4    }
-common vector             { build-depends: vector             >= 0.12     && < 0.13   }
+common QuickCheck           { build-depends: QuickCheck         >= 2.10     && < 2.12   }
+common hedgehog             { build-depends: hedgehog           >= 0.5      && < 0.7    }
+common hspec                { build-depends: hspec              >= 2.3      && < 3      }
+common hw-bits              { build-depends: hw-bits            >= 0.4.0.0  && < 0.8    }
+common hw-hspec-hedgehog    { build-depends: hw-hspec-hedgehog  >= 0.1.0.4  && < 0.2    }
+common hw-prim              { build-depends: hw-prim            >= 0.4.0.0  && < 0.8    }
+common hw-rankselect-base   { build-depends: hw-rankselect-base >= 0.2.0.0  && < 0.4    }
+common safe                 { build-depends: safe               >= 0.2      && < 0.4    }
+common vector               { build-depends: vector             >= 0.12     && < 0.13   }
 
 common config
   default-language:     Haskell2010
@@ -56,9 +58,11 @@ library
 test-suite hw-excess-test
   import:   base, config
           , QuickCheck
+          , hedgehog
           , hspec
           , hw-bits
           , hw-prim
+          , hw-hspec-hedgehog
           , vector
   type:                 exitcode-stdio-1.0
   main-is:              Spec.hs
