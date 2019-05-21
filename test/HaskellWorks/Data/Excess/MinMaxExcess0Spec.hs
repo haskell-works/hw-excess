@@ -4,6 +4,8 @@
 module HaskellWorks.Data.Excess.MinMaxExcess0Spec (spec) where
 
 import HaskellWorks.Data.Bits.Word
+import HaskellWorks.Data.Excess.Internal.Table
+import HaskellWorks.Data.Excess.Internal.Triplet8 (Triplet8 (Triplet8))
 import HaskellWorks.Data.Excess.MinMaxExcess0
 import HaskellWorks.Data.Excess.Triplet
 import HaskellWorks.Data.Naive
@@ -156,16 +158,24 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess0Spec" $ do
       let Triplet _ _  maxE1 = minMaxExcess0 w1
       let Triplet _ _  maxE2 = minMaxExcess0 w2
       maxE2 === maxE0 `max` (maxE1 + e0)
-    describe "Equivalent to native implementation" $ do
-      it "For Word8" $ requireProperty $ do
-        w <- forAll $ G.word8 R.constantBounded
-        minMaxExcess0 w === minMaxExcess0 (Naive w)
-      it "For Word16" $ requireProperty $ do
-        w <- forAll $ G.word16 R.constantBounded
-        minMaxExcess0 w === minMaxExcess0 (Naive w)
-      it "For Word32" $ requireProperty $ do
-        w <- forAll $ G.word32 R.constantBounded
-        minMaxExcess0 w === minMaxExcess0 (Naive w)
-      it "For Word64" $ requireProperty $ do
-        w <- forAll $ G.word64 R.constantBounded
-        minMaxExcess0 w === minMaxExcess0 (Naive w)
+  describe "Equivalent to native implementation" $ do
+    it "For Word8" $ requireProperty $ do
+      w <- forAll $ G.word8 R.constantBounded
+      minMaxExcess0 w === minMaxExcess0 (Naive w)
+    it "For Word16" $ requireProperty $ do
+      w <- forAll $ G.word16 R.constantBounded
+      minMaxExcess0 w === minMaxExcess0 (Naive w)
+    it "For Word32" $ requireProperty $ do
+      w <- forAll $ G.word32 R.constantBounded
+      minMaxExcess0 w === minMaxExcess0 (Naive w)
+    it "For Word64" $ requireProperty $ do
+      w <- forAll $ G.word64 R.constantBounded
+      minMaxExcess0 w === minMaxExcess0 (Naive w)
+  describe "Equivalent to word8Excess0' implementation" $ do
+    it "For word8" $ requireProperty $ do
+      w <- forAll $ G.word8 R.constantBounded
+      let Triplet  lo0 ex0 hi0 = minMaxExcess0     w
+      let Triplet8 lo1 ex1 hi1 = genWord8Excess0 8 w
+      lo0 === fromIntegral lo1
+      ex0 === fromIntegral ex1
+      hi0 === fromIntegral hi1
