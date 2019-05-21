@@ -47,6 +47,7 @@ library
     HaskellWorks.Data.Excess
     HaskellWorks.Data.Excess.Excess0
     HaskellWorks.Data.Excess.Excess1
+    HaskellWorks.Data.Excess.Internal
     HaskellWorks.Data.Excess.MinMaxExcess0
     HaskellWorks.Data.Excess.MinMaxExcess1
     HaskellWorks.Data.Excess.Triplet
