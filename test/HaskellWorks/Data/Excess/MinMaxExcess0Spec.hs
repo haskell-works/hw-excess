@@ -4,8 +4,9 @@
 module HaskellWorks.Data.Excess.MinMaxExcess0Spec (spec) where
 
 import HaskellWorks.Data.Bits.Word
+import HaskellWorks.Data.Excess.Internal.Partial.Leh0
 import HaskellWorks.Data.Excess.Internal.Table
-import HaskellWorks.Data.Excess.Internal.Triplet8 (Triplet8 (Triplet8))
+import HaskellWorks.Data.Excess.Internal.Triplet8     (Triplet8 (Triplet8))
 import HaskellWorks.Data.Excess.MinMaxExcess0
 import HaskellWorks.Data.Excess.Triplet
 import HaskellWorks.Data.Naive
@@ -179,3 +180,10 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess0Spec" $ do
       lo0 === fromIntegral lo1
       ex0 === fromIntegral ex1
       hi0 === fromIntegral hi1
+  describe "Equivalent to leh0 implementation" $ do
+    it "For word8" $ requireProperty $ do
+      w <- forAll $ G.word8 R.constantBounded
+      let Triplet lo0 ex0 hi0 = minMaxExcess0 w
+      lo0 === fromIntegral (leh0Lo 8 w)
+      ex0 === fromIntegral (leh0Ex 8 w)
+      hi0 === fromIntegral (leh0Hi 8 w)
