@@ -28,6 +28,7 @@ word8Excess0Min =  DVS.fromList
   ,  0, -1,  0, -2,  0, -2, -2, -4,  0, -2, -2, -4, -2, -4, -4, -6
   ,  0, -2, -2, -4, -2, -4, -4, -6, -2, -4, -4, -6, -4, -6, -6, -8
   ]
+{-# NOINLINE word8Excess0Min #-}
 
 word8Excess0 :: DVS.Vector Int
 word8Excess0 =  DVS.fromList
@@ -48,6 +49,7 @@ word8Excess0 =  DVS.fromList
   ,  2,  0,  0, -2,  0, -2, -2, -4,  0, -2, -2, -4, -2, -4, -4, -6
   ,  0, -2, -2, -4, -2, -4, -4, -6, -2, -4, -4, -6, -4, -6, -6, -8
   ]
+{-# NOINLINE word8Excess0 #-}
 
 word8Excess0Max :: DVS.Vector Int
 word8Excess0Max =  DVS.fromList
@@ -68,6 +70,7 @@ word8Excess0Max =  DVS.fromList
   ,  5,  3,  3,  1,  3,  1,  1,  0,  3,  1,  1,  0,  2,  0,  1,  0
   ,  4,  2,  2,  0,  2,  0,  1,  0,  3,  1,  1,  0,  2,  0,  1,  0
   ]
+{-# NOINLINE word8Excess0Max #-}
 
 word8Excess1Min :: DVS.Vector Int
 word8Excess1Min =  DVS.fromList
@@ -88,6 +91,7 @@ word8Excess1Min =  DVS.fromList
   , -5, -3, -3, -1, -3, -1, -1,  0, -3, -1, -1,  0, -2,  0, -1,  0
   , -4, -2, -2,  0, -2,  0, -1,  0, -3, -1, -1,  0, -2,  0, -1,  0
   ]
+{-# NOINLINE word8Excess1Min #-}
 
 word8Excess1 :: DVS.Vector Int
 word8Excess1 =  DVS.fromList
@@ -108,6 +112,7 @@ word8Excess1 =  DVS.fromList
   , -2,  0,  0,  2,  0,  2,  2,  4,  0,  2,  2,  4,  2,  4,  4,  6
   ,  0,  2,  2,  4,  2,  4,  4,  6,  2,  4,  4,  6,  4,  6,  6,  8
   ]
+{-# NOINLINE word8Excess1 #-}
 
 word8Excess1Max :: DVS.Vector Int
 word8Excess1Max =  DVS.fromList
@@ -128,3 +133,4 @@ word8Excess1Max =  DVS.fromList
   ,  0,  1,  0,  2,  0,  2,  2,  4,  0,  2,  2,  4,  2,  4,  4,  6
   ,  0,  2,  2,  4,  2,  4,  4,  6,  2,  4,  4,  6,  4,  6,  6,  8
   ]
+{-# NOINLINE word8Excess1Max #-}
