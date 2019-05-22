@@ -57,9 +57,9 @@ instance MinMaxExcess0 (Naive Word64) where
   {-# INLINE minMaxExcess0 #-}
 
 instance MinMaxExcess0 Word8 where
-  minMaxExcess0 w = Triplet (word8Excess0Min DVS.! fromIntegral w)
-                            (word8Excess0    DVS.! fromIntegral w)
-                            (word8Excess0Max DVS.! fromIntegral w)
+  minMaxExcess0 w = Triplet (DVS.unsafeIndex word8Excess0Min (fromIntegral w))
+                            (DVS.unsafeIndex word8Excess0    (fromIntegral w))
+                            (DVS.unsafeIndex word8Excess0Max (fromIntegral w))
   {-# INLINE minMaxExcess0 #-}
 
 instance MinMaxExcess0 Word16 where
