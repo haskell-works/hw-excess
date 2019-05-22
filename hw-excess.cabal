@@ -23,6 +23,8 @@ source-repository head
 
 common base                 { build-depends: base               >= 4.8      &&  < 5     }
 
+common bytestring           { build-depends: bytestring         >= 0.10     && < 0.11   }
+common criterion            { build-depends: criterion          >= 1.4      && < 1.6    }
 common QuickCheck           { build-depends: QuickCheck         >= 2.10     && < 2.12   }
 common hedgehog             { build-depends: hedgehog           >= 0.5      && < 0.7    }
 common hspec                { build-depends: hspec              >= 2.3      && < 3      }
@@ -80,3 +82,16 @@ test-suite hw-excess-test
     HaskellWorks.Data.Excess.MinMaxExcess0Spec
     HaskellWorks.Data.Excess.MinMaxExcess1Spec
     Paths_hw_excess
+
+benchmark bench
+  import:   base, config
+          , bytestring
+          , criterion
+          , hw-prim
+          , vector
+  type:           exitcode-stdio-1.0
+  main-is:        Main.hs
+  hs-source-dirs: bench
+  ghc-options:    -O2 -msse4.2
+  build-depends:  hw-excess
+  other-modules:  Paths_hw_excess
