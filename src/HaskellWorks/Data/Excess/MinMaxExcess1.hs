@@ -14,7 +14,8 @@ import HaskellWorks.Data.Excess.Internal.Branchless
 import HaskellWorks.Data.Excess.Triplet
 import HaskellWorks.Data.Naive
 
-import qualified Data.Vector.Storable as DVS
+import qualified Data.Vector.Storable                         as DVS
+import qualified HaskellWorks.Data.Excess.Internal.Branchless as BL
 
 type MinExcess = Int
 type MaxExcess = Int
@@ -91,34 +92,34 @@ instance MinMaxExcess1 (DVS.Vector Word8) where
   minMaxExcess1 = DVS.foldl' gen (Triplet 0 0 0)
     where gen :: Triplet -> Word8 -> Triplet
           gen (Triplet minE allE maxE) w  = let Triplet wMinE wAllE wMaxE = minMaxExcess1 w  in
-                                            Triplet (minE `min` (wMinE + allE))
-                                                    (            wAllE + allE )
-                                                    (maxE `max` (wMaxE + allE))
+                                            Triplet (BL.minInt minE (wMinE + allE))
+                                                    (                wAllE + allE )
+                                                    (BL.maxInt maxE (wMaxE + allE))
   {-# INLINE minMaxExcess1 #-}
 
 instance MinMaxExcess1 (DVS.Vector Word16) where
   minMaxExcess1 = DVS.foldl' gen (Triplet 0 0 0)
     where gen :: Triplet -> Word16 -> Triplet
           gen (Triplet minE allE maxE) w  = let Triplet wMinE wAllE wMaxE = minMaxExcess1 w  in
-                                            Triplet (minE `min` (wMinE + allE))
-                                                    (            wAllE + allE )
-                                                    (maxE `max` (wMaxE + allE))
+                                            Triplet (BL.minInt minE (wMinE + allE))
+                                                    (                wAllE + allE )
+                                                    (BL.maxInt maxE (wMaxE + allE))
   {-# INLINE minMaxExcess1 #-}
 
 instance MinMaxExcess1 (DVS.Vector Word32) where
   minMaxExcess1 = DVS.foldl' gen (Triplet 0 0 0)
     where gen :: Triplet -> Word32 -> Triplet
           gen (Triplet minE allE maxE) w  = let Triplet wMinE wAllE wMaxE = minMaxExcess1 w  in
-                                            Triplet (minE `min` (wMinE + allE))
-                                                    (            wAllE + allE )
-                                                    (maxE `max` (wMaxE + allE))
+                                            Triplet (BL.minInt minE (wMinE + allE))
+                                                    (                wAllE + allE )
+                                                    (BL.maxInt maxE (wMaxE + allE))
   {-# INLINE minMaxExcess1 #-}
 
 instance MinMaxExcess1 (DVS.Vector Word64) where
   minMaxExcess1 = DVS.foldl' gen (Triplet 0 0 0)
     where gen :: Triplet -> Word64 -> Triplet
           gen (Triplet minE allE maxE) w  = let Triplet wMinE wAllE wMaxE = minMaxExcess1 w  in
-                                            Triplet (minE `min` (wMinE + allE))
-                                                    (            wAllE + allE )
-                                                    (maxE `max` (wMaxE + allE))
+                                            Triplet (BL.minInt minE (wMinE + allE))
+                                                    (                wAllE + allE )
+                                                    (BL.maxInt maxE (wMaxE + allE))
   {-# INLINE minMaxExcess1 #-}
