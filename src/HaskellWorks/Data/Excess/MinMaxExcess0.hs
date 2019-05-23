@@ -9,7 +9,7 @@ module HaskellWorks.Data.Excess.MinMaxExcess0
 import Data.Word
 import HaskellWorks.Data.Bits.BitWise
 import HaskellWorks.Data.Bits.FixedBitSize
-import HaskellWorks.Data.Excess.Internal
+import HaskellWorks.Data.Excess.Internal.Table
 import HaskellWorks.Data.Excess.Triplet
 import HaskellWorks.Data.Naive
 
