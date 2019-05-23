@@ -1,4 +1,4 @@
-module HaskellWorks.Data.Excess.Internal
+module HaskellWorks.Data.Excess.Internal.Table
   ( word8Excess0
   , word8Excess0Max
   , word8Excess0Min
