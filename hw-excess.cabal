@@ -30,7 +30,7 @@ common hedgehog             { build-depends: hedgehog           >= 0.5      && <
 common hspec                { build-depends: hspec              >= 2.3      && < 3      }
 common hw-bits              { build-depends: hw-bits            >= 0.4.0.0  && < 0.8    }
 common hw-hspec-hedgehog    { build-depends: hw-hspec-hedgehog  >= 0.1.0.4  && < 0.2    }
-common hw-prim              { build-depends: hw-prim            >= 0.4.0.0  && < 0.8    }
+common hw-prim              { build-depends: hw-prim            >= 0.6.2.24 && < 0.7    }
 common hw-rankselect-base   { build-depends: hw-rankselect-base >= 0.2.0.0  && < 0.4    }
 common safe                 { build-depends: safe               >= 0.2      && < 0.4    }
 common vector               { build-depends: vector             >= 0.12     && < 0.13   }
@@ -50,6 +50,7 @@ library
     HaskellWorks.Data.Excess.Excess0
     HaskellWorks.Data.Excess.Excess1
     HaskellWorks.Data.Excess.Internal
+    HaskellWorks.Data.Excess.Internal.Branchless
     HaskellWorks.Data.Excess.Internal.Partial.Leh0
     HaskellWorks.Data.Excess.Internal.Partial.Leh1
     HaskellWorks.Data.Excess.Internal.Table
@@ -79,6 +80,7 @@ test-suite hw-excess-test
   build-depends:        hw-excess
   autogen-modules:      Paths_hw_excess
   other-modules:
+    HaskellWorks.Data.Excess.Internal.BranchlessSpec
     HaskellWorks.Data.Excess.MinMaxExcess0Spec
     HaskellWorks.Data.Excess.MinMaxExcess1Spec
     Paths_hw_excess
