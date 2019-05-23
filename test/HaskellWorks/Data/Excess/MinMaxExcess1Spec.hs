@@ -4,9 +4,8 @@
 module HaskellWorks.Data.Excess.MinMaxExcess1Spec (spec) where
 
 import HaskellWorks.Data.Bits.Word
-import HaskellWorks.Data.Excess.Internal.Partial.Leh1
 import HaskellWorks.Data.Excess.Internal.Table
-import HaskellWorks.Data.Excess.Internal.Triplet8     (Triplet8 (Triplet8))
+import HaskellWorks.Data.Excess.Internal.Triplet8 (Triplet8 (Triplet8))
 import HaskellWorks.Data.Excess.MinMaxExcess1
 import HaskellWorks.Data.Excess.Triplet
 import HaskellWorks.Data.Naive
@@ -180,22 +179,3 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess1Spec" $ do
       lo0 === fromIntegral lo1
       ex0 === fromIntegral ex1
       hi0 === fromIntegral hi1
-  describe "Equivalent to leh1 implementation" $ do
-    it "For word8" $ requireProperty $ do
-      w <- forAll $ G.word8 R.constantBounded
-      let Triplet lo0 ex0 hi0 = minMaxExcess1 w
-      lo0 === fromIntegral (leh1Lo 8 w)
-      ex0 === fromIntegral (leh1Ex 8 w)
-      hi0 === fromIntegral (leh1Hi 8 w)
-    it "For word16" $ requireProperty $ do
-      w <- forAll $ G.word16 R.constantBounded
-      let Triplet lo0 ex0 hi0 = minMaxExcess1 w
-      lo0 === fromIntegral (leh1Lo 16 w)
-      ex0 === fromIntegral (leh1Ex 16 w)
-      hi0 === fromIntegral (leh1Hi 16 w)
-    it "For word32" $ requireProperty $ do
-      w <- forAll $ G.word32 R.constantBounded
-      let Triplet lo0 ex0 hi0 = minMaxExcess1 w
-      lo0 === fromIntegral (leh1Lo 32 w)
-      ex0 === fromIntegral (leh1Ex 32 w)
-      hi0 === fromIntegral (leh1Hi 32 w)

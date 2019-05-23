@@ -51,8 +51,6 @@ library
     HaskellWorks.Data.Excess.Excess1
     HaskellWorks.Data.Excess.Internal
     HaskellWorks.Data.Excess.Internal.Branchless
-    HaskellWorks.Data.Excess.Internal.Partial.Leh0
-    HaskellWorks.Data.Excess.Internal.Partial.Leh1
     HaskellWorks.Data.Excess.Internal.Table
     HaskellWorks.Data.Excess.Internal.Triplet8
     HaskellWorks.Data.Excess.MinMaxExcess0
