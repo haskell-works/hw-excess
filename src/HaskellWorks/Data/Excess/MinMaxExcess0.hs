@@ -10,6 +10,7 @@ import Data.Word
 import HaskellWorks.Data.Bits.BitWise
 import HaskellWorks.Data.Bits.FixedBitSize
 import HaskellWorks.Data.Excess.Internal
+import HaskellWorks.Data.Excess.Internal.Branchless
 import HaskellWorks.Data.Excess.Triplet
 import HaskellWorks.Data.Naive
 
@@ -63,25 +64,25 @@ instance MinMaxExcess0 Word8 where
   {-# INLINE minMaxExcess0 #-}
 
 instance MinMaxExcess0 Word16 where
-  minMaxExcess0 w = Triplet (minExcessA `min` (minExcessB + allExcessA))
+  minMaxExcess0 w = Triplet (minInt minExcessA (minExcessB + allExcessA))
                             (allExcessA + allExcessB)
-                            (maxExcessA `max` (maxExcessB + allExcessA))
+                            (maxInt maxExcessA (maxExcessB + allExcessA))
     where Triplet minExcessA allExcessA maxExcessA = minMaxExcess0 (fromIntegral  w        :: Word8)
           Triplet minExcessB allExcessB maxExcessB = minMaxExcess0 (fromIntegral (w .>. 8) :: Word8)
   {-# INLINE minMaxExcess0 #-}
 
 instance MinMaxExcess0 Word32 where
-  minMaxExcess0 w = Triplet (minExcessA `min` (minExcessB + allExcessA))
+  minMaxExcess0 w = Triplet (minInt minExcessA (minExcessB + allExcessA))
                             (allExcessA + allExcessB)
-                            (maxExcessA `max` (maxExcessB + allExcessA))
+                            (maxInt maxExcessA (maxExcessB + allExcessA))
     where Triplet minExcessA allExcessA maxExcessA = minMaxExcess0 (fromIntegral  w         :: Word16)
           Triplet minExcessB allExcessB maxExcessB = minMaxExcess0 (fromIntegral (w .>. 16) :: Word16)
   {-# INLINE minMaxExcess0 #-}
 
 instance MinMaxExcess0 Word64 where
-  minMaxExcess0 w = Triplet (minExcessA `min` (minExcessB + allExcessA))
+  minMaxExcess0 w = Triplet (minInt minExcessA (minExcessB + allExcessA))
                             (allExcessA + allExcessB)
-                            (maxExcessA `max` (maxExcessB + allExcessA))
+                            (maxInt maxExcessA (maxExcessB + allExcessA))
     where Triplet minExcessA allExcessA maxExcessA = minMaxExcess0 (fromIntegral  w         :: Word32)
           Triplet minExcessB allExcessB maxExcessB = minMaxExcess0 (fromIntegral (w .>. 32) :: Word32)
   {-# INLINE minMaxExcess0 #-}
