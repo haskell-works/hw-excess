@@ -4,8 +4,6 @@
 module HaskellWorks.Data.Excess.MinMaxExcess1Spec (spec) where
 
 import HaskellWorks.Data.Bits.Word
-import HaskellWorks.Data.Excess.Internal.Table
-import HaskellWorks.Data.Excess.Internal.Triplet8 (Triplet8 (Triplet8))
 import HaskellWorks.Data.Excess.MinMaxExcess1
 import HaskellWorks.Data.Excess.Triplet
 import HaskellWorks.Data.Naive
@@ -171,11 +169,3 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess1Spec" $ do
     it "For Word64" $ requireProperty $ do
       w <- forAll $ G.word64 R.constantBounded
       minMaxExcess1 w === minMaxExcess1 (Naive w)
-  describe "Equivalent to word8Excess1' implementation" $ do
-    it "For word8" $ requireProperty $ do
-      w <- forAll $ G.word8 R.constantBounded
-      let Triplet  lo0 ex0 hi0 = minMaxExcess1     w
-      let Triplet8 lo1 ex1 hi1 = genWord8Excess1 8 w
-      lo0 === fromIntegral lo1
-      ex0 === fromIntegral ex1
-      hi0 === fromIntegral hi1
