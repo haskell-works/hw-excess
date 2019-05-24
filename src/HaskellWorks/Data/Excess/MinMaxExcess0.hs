@@ -25,35 +25,35 @@ class MinMaxExcess0 a where
 instance MinMaxExcess0 [Bool] where
   minMaxExcess0 = go 0 0 0
     where go minE maxE allE (x:xs)                    = let ne = if x then allE - 1 else allE + 1 in
-                                                        go (minE `min` ne) (maxE `max` ne) ne xs
+                                                        go (BL.minInt minE ne) (BL.maxInt maxE ne) ne xs
           go minE maxE allE _                         = Triplet minE allE maxE
   {-# INLINE minMaxExcess0 #-}
 
 instance MinMaxExcess0 (Naive Word8) where
   minMaxExcess0 = go 0 0 0 0 . naive
     where go minE maxE allE n w | n < fixedBitSize w  = let ne = if w .?. fromIntegral n then allE - 1 else allE + 1 in
-                                                        go (minE `min` ne) (maxE `max` ne) ne (n + 1) w
+                                                        go (BL.minInt minE ne) (BL.maxInt maxE ne) ne (n + 1) w
           go minE maxE allE _ _                       = Triplet minE allE maxE
   {-# INLINE minMaxExcess0 #-}
 
 instance MinMaxExcess0 (Naive Word16) where
   minMaxExcess0 = go 0 0 0 0 . naive
     where go minE maxE allE n w | n < fixedBitSize w  = let ne = if w .?. fromIntegral n then allE - 1 else allE + 1 in
-                                                        go (minE `min` ne) (maxE `max` ne) ne (n + 1) w
+                                                        go (BL.minInt minE ne) (BL.maxInt maxE ne) ne (n + 1) w
           go minE maxE allE _ _                       = Triplet minE allE maxE
   {-# INLINE minMaxExcess0 #-}
 
 instance MinMaxExcess0 (Naive Word32) where
   minMaxExcess0 = go 0 0 0 0 . naive
     where go minE maxE allE n w | n < fixedBitSize w  = let ne = if w .?. fromIntegral n then allE - 1 else allE + 1 in
-                                                        go (minE `min` ne) (maxE `max` ne) ne (n + 1) w
+                                                        go (BL.minInt minE ne) (BL.maxInt maxE ne) ne (n + 1) w
           go minE maxE allE _ _                       = Triplet minE allE maxE
   {-# INLINE minMaxExcess0 #-}
 
 instance MinMaxExcess0 (Naive Word64) where
   minMaxExcess0 = go 0 0 0 0 . naive
     where go minE maxE allE n w | n < fixedBitSize w  = let ne = if w .?. fromIntegral n then allE - 1 else allE + 1 in
-                                                        go (minE `min` ne) (maxE `max` ne) ne (n + 1) w
+                                                        go (BL.minInt minE ne) (BL.maxInt maxE ne) ne (n + 1) w
           go minE maxE allE _ _                       = Triplet minE allE maxE
   {-# INLINE minMaxExcess0 #-}
 
