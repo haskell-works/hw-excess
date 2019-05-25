@@ -8,10 +8,10 @@ import Criterion.Main
 import Data.List
 import Data.Word
 import Foreign
-import HaskellWorks.Data.Excess.Mem0
-import HaskellWorks.Data.Excess.Mem1
-import HaskellWorks.Data.Excess.PartialMem0
-import HaskellWorks.Data.Excess.PartialMem1
+import HaskellWorks.Data.Excess.MinMaxExcess0
+import HaskellWorks.Data.Excess.MinMaxExcess1
+import HaskellWorks.Data.Excess.PartialMinMaxExcess0
+import HaskellWorks.Data.Excess.PartialMinMaxExcess1
 import HaskellWorks.Data.Excess.Triplet
 import HaskellWorks.Data.Vector.AsVector64
 
@@ -25,67 +25,67 @@ setupEnvExcess n = do
   lbs <- LBS.readFile "/dev/random"
   return (asVector64 (LBS.toStrict (LBS.take (fromIntegral n) lbs)))
 
-runPartialMem0Vector :: DVS.Vector Word64 -> IO ()
-runPartialMem0Vector v = do
+runPartialMinMaxExcess0Vector :: DVS.Vector Word64 -> IO ()
+runPartialMinMaxExcess0Vector v = do
   let !_ = DVS.foldl go 0 v
 
   return ()
   where go :: Int -> Word64 -> Int
         go a b = a + lo + ex + hi
           where c = fromIntegral b :: Word64
-                Triplet lo ex hi = partialMem0 64 c
+                Triplet lo ex hi = partialMinMaxExcess0 64 c
 
-runPartialMem1Vector :: DVS.Vector Word64 -> IO ()
-runPartialMem1Vector v = do
+runPartialMinMaxExcess1Vector :: DVS.Vector Word64 -> IO ()
+runPartialMinMaxExcess1Vector v = do
   let !_ = DVS.foldl go 0 v
 
   return ()
   where go :: Int -> Word64 -> Int
         go a b = a + lo + ex + hi
           where c = fromIntegral b :: Word64
-                Triplet lo ex hi = partialMem1 64 c
+                Triplet lo ex hi = partialMinMaxExcess1 64 c
 
-runMem0VectorElems :: DVS.Vector Word64 -> IO ()
-runMem0VectorElems v = do
+runMinMaxExcess0VectorElems :: DVS.Vector Word64 -> IO ()
+runMinMaxExcess0VectorElems v = do
   let !_ = DVS.foldl go 0 v
 
   return ()
   where go :: Int -> Word64 -> Int
         go a b = a + lo + ex + hi
-          where Triplet lo ex hi  = mem0 (b :: Word64)
+          where Triplet lo ex hi  = minMaxExcess0 (b :: Word64)
 
-runMem1VectorElems :: DVS.Vector Word64 -> IO ()
-runMem1VectorElems v = do
+runMinMaxExcess1VectorElems :: DVS.Vector Word64 -> IO ()
+runMinMaxExcess1VectorElems v = do
   let !_ = DVS.foldl go 0 v
 
   return ()
   where go :: Int -> Word64 -> Int
         go a b = a + lo + ex + hi
-          where Triplet lo ex hi  = mem1 (b :: Word64)
+          where Triplet lo ex hi  = minMaxExcess1 (b :: Word64)
 
-runMem0Vector :: DVS.Vector Word64 -> IO ()
-runMem0Vector v = do
-  let !_ = mem1 v
+runMinMaxExcess0Vector :: DVS.Vector Word64 -> IO ()
+runMinMaxExcess0Vector v = do
+  let !_ = minMaxExcess1 v
 
   return ()
 
-runMem1Vector :: DVS.Vector Word64 -> IO ()
-runMem1Vector v = do
-  let !_ = mem1 v
+runMinMaxExcess1Vector :: DVS.Vector Word64 -> IO ()
+runMinMaxExcess1Vector v = do
+  let !_ = minMaxExcess1 v
 
   return ()
 
 makeBenchExcess :: IO [Benchmark]
 makeBenchExcess = return $
-  [ env (setupEnvExcess (1024 * 1024)) $ \v -> bgroup "Mem Vector"
-    [ bench "Mem0" (whnfIO (runMem0VectorElems v))
-    , bench "Mem1" (whnfIO (runMem1VectorElems v))
-    , bench "Mem0" (whnfIO (runMem0Vector      v))
-    , bench "Mem1" (whnfIO (runMem1Vector      v))
+  [ env (setupEnvExcess (1024 * 1024)) $ \v -> bgroup "MinMaxExcess Vector"
+    [ bench "MinMaxExcess0" (whnfIO (runMinMaxExcess0VectorElems v))
+    , bench "MinMaxExcess1" (whnfIO (runMinMaxExcess1VectorElems v))
+    , bench "MinMaxExcess0" (whnfIO (runMinMaxExcess0Vector      v))
+    , bench "MinMaxExcess1" (whnfIO (runMinMaxExcess1Vector      v))
     ]
-  , env (setupEnvExcess (1024 * 1024)) $ \v -> bgroup "PartialMem Vector"
-    [ bench "PartialMem0" (whnfIO (runPartialMem0Vector v))
-    , bench "PartialMem1" (whnfIO (runPartialMem1Vector v))
+  , env (setupEnvExcess (1024 * 1024)) $ \v -> bgroup "PartialMinMaxExcess Vector"
+    [ bench "PartialMinMaxExcess0" (whnfIO (runPartialMinMaxExcess0Vector v))
+    , bench "PartialMinMaxExcess1" (whnfIO (runPartialMinMaxExcess1Vector v))
     ]
   ]
 
