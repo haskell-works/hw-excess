@@ -1,4 +1,4 @@
-module HaskellWorks.Data.Excess.Internal.Table.Leh
+module HaskellWorks.Data.Excess.Internal.Partial.Table
   ( genWord8Excess0
   , genWord8Excess1
 

@@ -13,10 +13,10 @@ import HaskellWorks.Hspec.Hedgehog
 import Hedgehog
 import Test.Hspec
 
-import qualified Data.Vector.Storable                        as DVS
-import qualified HaskellWorks.Data.Excess.Internal.Table.Leh as T
-import qualified Hedgehog.Gen                                as G
-import qualified Hedgehog.Range                              as R
+import qualified Data.Vector.Storable                            as DVS
+import qualified HaskellWorks.Data.Excess.Internal.Partial.Table as T
+import qualified Hedgehog.Gen                                    as G
+import qualified Hedgehog.Range                                  as R
 
 {-# ANN module ("HLint: Ignore Redundant do" :: String) #-}
 {-# ANN module ("HLint: Ignore Reduce duplication"  :: String) #-}
