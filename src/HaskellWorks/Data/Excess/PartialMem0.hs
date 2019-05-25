@@ -1,4 +1,4 @@
-module HaskellWorks.Data.Excess.Internal.Partial.PartialMem0
+module HaskellWorks.Data.Excess.PartialMem0
   ( PartialMem0(..)
   ) where
 
