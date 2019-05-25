@@ -1,7 +1,7 @@
 cabal-version:        2.2
 
 name:                 hw-excess
-version:              0.2.0.3
+version:              0.2.1.0
 synopsis:             Excess
 description:          Please see README.md
 category:             Data, Succinct Data Structures, Data Structures
