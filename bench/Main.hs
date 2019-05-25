@@ -8,8 +8,8 @@ import Criterion.Main
 import Data.List
 import Data.Word
 import Foreign
-import HaskellWorks.Data.Excess.Internal.Partial.Leh0
-import HaskellWorks.Data.Excess.Internal.Partial.Leh1
+import HaskellWorks.Data.Excess.Internal.Partial.PartialMem0
+import HaskellWorks.Data.Excess.Internal.Partial.PartialMem1
 import HaskellWorks.Data.Excess.Mem0
 import HaskellWorks.Data.Excess.Mem1
 import HaskellWorks.Data.Excess.Triplet
@@ -25,25 +25,25 @@ setupEnvExcess n = do
   lbs <- LBS.readFile "/dev/random"
   return (asVector64 (LBS.toStrict (LBS.take (fromIntegral n) lbs)))
 
-runLeh0Vector :: DVS.Vector Word64 -> IO ()
-runLeh0Vector v = do
+runPartialMem0Vector :: DVS.Vector Word64 -> IO ()
+runPartialMem0Vector v = do
   let !_ = DVS.foldl go 0 v
 
   return ()
   where go :: Int -> Word64 -> Int
         go a b = a + lo + ex + hi
           where c = fromIntegral b :: Word64
-                Triplet lo ex hi = leh0 64 c
+                Triplet lo ex hi = partialMem0 64 c
 
-runLeh1Vector :: DVS.Vector Word64 -> IO ()
-runLeh1Vector v = do
+runPartialMem1Vector :: DVS.Vector Word64 -> IO ()
+runPartialMem1Vector v = do
   let !_ = DVS.foldl go 0 v
 
   return ()
   where go :: Int -> Word64 -> Int
         go a b = a + lo + ex + hi
           where c = fromIntegral b :: Word64
-                Triplet lo ex hi = leh1 64 c
+                Triplet lo ex hi = partialMem1 64 c
 
 runMem0VectorElems :: DVS.Vector Word64 -> IO ()
 runMem0VectorElems v = do
@@ -83,9 +83,9 @@ makeBenchExcess = return $
     , bench "Mem0" (whnfIO (runMem0Vector      v))
     , bench "Mem1" (whnfIO (runMem1Vector      v))
     ]
-  , env (setupEnvExcess (1024 * 1024)) $ \v -> bgroup "Leh Vector"
-    [ bench "Leh0" (whnfIO (runLeh0Vector v))
-    , bench "Leh1" (whnfIO (runLeh1Vector v))
+  , env (setupEnvExcess (1024 * 1024)) $ \v -> bgroup "PartialMem Vector"
+    [ bench "PartialMem0" (whnfIO (runPartialMem0Vector v))
+    , bench "PartialMem1" (whnfIO (runPartialMem1Vector v))
     ]
   ]
 

@@ -4,7 +4,7 @@
 module HaskellWorks.Data.Excess.Mem1Spec (spec) where
 
 import HaskellWorks.Data.Bits.Word
-import HaskellWorks.Data.Excess.Internal.Partial.Leh1
+import HaskellWorks.Data.Excess.Internal.Partial.PartialMem1
 import HaskellWorks.Data.Excess.Internal.Triplet8     (Triplet8 (Triplet8))
 import HaskellWorks.Data.Excess.Mem1
 import HaskellWorks.Data.Excess.Triplet
@@ -180,16 +180,16 @@ spec = describe "HaskellWorks.Data.Excess.Mem1Spec" $ do
       lo0 === fromIntegral lo1
       ex0 === fromIntegral ex1
       hi0 === fromIntegral hi1
-  describe "Equivalent to leh1 implementation" $ do
+  describe "Equivalent to partialMem1 implementation" $ do
     it "For word8" $ requireProperty $ do
       w <- forAll $ G.word8 R.constantBounded
-      mem1 w === leh1 8 w
+      mem1 w === partialMem1 8 w
     it "For word16" $ requireProperty $ do
       w <- forAll $ G.word16 R.constantBounded
-      mem1 w === leh1 16 w
+      mem1 w === partialMem1 16 w
     it "For word32" $ requireProperty $ do
       w <- forAll $ G.word32 R.constantBounded
-      mem1 w === leh1 32 w
+      mem1 w === partialMem1 32 w
     it "For word64" $ requireProperty $ do
       w <- forAll $ G.word64 R.constantBounded
-      mem1 w === leh1 64 w
+      mem1 w === partialMem1 64 w
