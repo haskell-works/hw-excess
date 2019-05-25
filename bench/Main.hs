@@ -30,18 +30,20 @@ runLeh0Vector v = do
   let !_ = DVS.foldl go 0 v
 
   return ()
-  where go :: Int64 -> Word64 -> Int64
-        go a b = a + (leh0Lo 64 c) + (leh0Ex 64 c) + (leh0Hi 64 c)
+  where go :: Int -> Word64 -> Int
+        go a b = a + lo + ex + hi
           where c = fromIntegral b :: Word64
+                Triplet lo ex hi = leh0 64 c
 
 runLeh1Vector :: DVS.Vector Word64 -> IO ()
 runLeh1Vector v = do
   let !_ = DVS.foldl go 0 v
 
   return ()
-  where go :: Int64 -> Word64 -> Int64
-        go a b = a + (leh1Lo 64 c) + (leh1Ex 64 c) + (leh1Hi 64 c)
+  where go :: Int -> Word64 -> Int
+        go a b = a + lo + ex + hi
           where c = fromIntegral b :: Word64
+                Triplet lo ex hi = leh1 64 c
 
 runMinMaxExcess0VectorElems :: DVS.Vector Word64 -> IO ()
 runMinMaxExcess0VectorElems v = do
