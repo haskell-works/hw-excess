@@ -55,8 +55,8 @@ library
     HaskellWorks.Data.Excess.Internal.Table
     HaskellWorks.Data.Excess.Internal.Table.Leh
     HaskellWorks.Data.Excess.Internal.Triplet8
-    HaskellWorks.Data.Excess.MinMaxExcess0
-    HaskellWorks.Data.Excess.MinMaxExcess1
+    HaskellWorks.Data.Excess.Mem0
+    HaskellWorks.Data.Excess.Mem1
     HaskellWorks.Data.Excess.Triplet
   autogen-modules:      Paths_hw_excess
   other-modules:        Paths_hw_excess
@@ -81,8 +81,8 @@ test-suite hw-excess-test
   autogen-modules:      Paths_hw_excess
   other-modules:
     HaskellWorks.Data.Excess.Internal.BranchlessSpec
-    HaskellWorks.Data.Excess.MinMaxExcess0Spec
-    HaskellWorks.Data.Excess.MinMaxExcess1Spec
+    HaskellWorks.Data.Excess.Mem0Spec
+    HaskellWorks.Data.Excess.Mem1Spec
     Paths_hw_excess
 
 benchmark bench
