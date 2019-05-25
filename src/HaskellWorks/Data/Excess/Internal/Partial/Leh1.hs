@@ -6,9 +6,9 @@ import Data.Word
 import HaskellWorks.Data.Bits.BitWise
 import HaskellWorks.Data.Excess.Triplet
 
-import qualified Data.Vector.Storable                         as DVS
-import qualified HaskellWorks.Data.Excess.Internal.Branchless as BL
-import qualified HaskellWorks.Data.Excess.Internal.Table.Leh  as T
+import qualified Data.Vector.Storable                            as DVS
+import qualified HaskellWorks.Data.Excess.Internal.Branchless    as BL
+import qualified HaskellWorks.Data.Excess.Internal.Partial.Table as T
 
 class Leh1 a where
   leh1 :: Int -> a -> Triplet
