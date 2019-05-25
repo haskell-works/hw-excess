@@ -4,9 +4,9 @@
 module HaskellWorks.Data.Excess.Mem0Spec (spec) where
 
 import HaskellWorks.Data.Bits.Word
-import HaskellWorks.Data.Excess.Internal.Partial.PartialMem0
-import HaskellWorks.Data.Excess.Internal.Triplet8     (Triplet8 (Triplet8))
+import HaskellWorks.Data.Excess.Internal.Triplet8 (Triplet8 (Triplet8))
 import HaskellWorks.Data.Excess.Mem0
+import HaskellWorks.Data.Excess.PartialMem0
 import HaskellWorks.Data.Excess.Triplet
 import HaskellWorks.Data.Naive
 import HaskellWorks.Hspec.Hedgehog

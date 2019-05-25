@@ -8,10 +8,10 @@ import Criterion.Main
 import Data.List
 import Data.Word
 import Foreign
-import HaskellWorks.Data.Excess.Internal.Partial.PartialMem0
-import HaskellWorks.Data.Excess.Internal.Partial.PartialMem1
 import HaskellWorks.Data.Excess.Mem0
 import HaskellWorks.Data.Excess.Mem1
+import HaskellWorks.Data.Excess.PartialMem0
+import HaskellWorks.Data.Excess.PartialMem1
 import HaskellWorks.Data.Excess.Triplet
 import HaskellWorks.Data.Vector.AsVector64
 
