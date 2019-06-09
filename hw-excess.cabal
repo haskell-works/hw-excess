@@ -53,6 +53,7 @@ library
     HaskellWorks.Data.Excess.Internal.Partial.Table
     HaskellWorks.Data.Excess.Internal.Table
     HaskellWorks.Data.Excess.Internal.Triplet8
+    HaskellWorks.Data.Excess.MinExcess
     HaskellWorks.Data.Excess.MinMaxExcess0
     HaskellWorks.Data.Excess.MinMaxExcess1
     HaskellWorks.Data.Excess.PartialMinMaxExcess0
