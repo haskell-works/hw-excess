@@ -6,7 +6,6 @@ module HaskellWorks.Data.Excess.MinMaxExcess1Spec (spec) where
 import HaskellWorks.Data.Bits.Word
 import HaskellWorks.Data.Excess.Internal.Triplet8 (Triplet8 (Triplet8))
 import HaskellWorks.Data.Excess.MinMaxExcess1
-import HaskellWorks.Data.Excess.PartialMinMaxExcess1
 import HaskellWorks.Data.Excess.Triplet
 import HaskellWorks.Data.Naive
 import HaskellWorks.Hspec.Hedgehog
@@ -180,16 +179,3 @@ spec = describe "HaskellWorks.Data.Excess.MinMaxExcess1Spec" $ do
       lo0 === fromIntegral lo1
       ex0 === fromIntegral ex1
       hi0 === fromIntegral hi1
-  describe "Equivalent to partialMinMaxExcess1 implementation" $ do
-    it "For word8" $ requireProperty $ do
-      w <- forAll $ G.word8 R.constantBounded
-      minMaxExcess1 w === partialMinMaxExcess1 8 w
-    it "For word16" $ requireProperty $ do
-      w <- forAll $ G.word16 R.constantBounded
-      minMaxExcess1 w === partialMinMaxExcess1 16 w
-    it "For word32" $ requireProperty $ do
-      w <- forAll $ G.word32 R.constantBounded
-      minMaxExcess1 w === partialMinMaxExcess1 32 w
-    it "For word64" $ requireProperty $ do
-      w <- forAll $ G.word64 R.constantBounded
-      minMaxExcess1 w === partialMinMaxExcess1 64 w
