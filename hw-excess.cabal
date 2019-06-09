@@ -58,6 +58,8 @@ library
     HaskellWorks.Data.Excess.MinExcess1
     HaskellWorks.Data.Excess.MinMaxExcess0
     HaskellWorks.Data.Excess.MinMaxExcess1
+    HaskellWorks.Data.Excess.PartialMinExcess0
+    HaskellWorks.Data.Excess.PartialMinExcess1
     HaskellWorks.Data.Excess.PartialMinMaxExcess0
     HaskellWorks.Data.Excess.PartialMinMaxExcess1
     HaskellWorks.Data.Excess.Triplet
@@ -88,6 +90,10 @@ test-suite hw-excess-test
     HaskellWorks.Data.Excess.MinExcess1Spec
     HaskellWorks.Data.Excess.MinMaxExcess0Spec
     HaskellWorks.Data.Excess.MinMaxExcess1Spec
+    HaskellWorks.Data.Excess.PartialMinExcess0Spec
+    HaskellWorks.Data.Excess.PartialMinExcess1Spec
+    HaskellWorks.Data.Excess.PartialMinMaxExcess0Spec
+    HaskellWorks.Data.Excess.PartialMinMaxExcess1Spec
     Paths_hw_excess
 
 benchmark bench
