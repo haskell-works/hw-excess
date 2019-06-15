@@ -26,7 +26,7 @@ common base                 { build-depends: base               >= 4.8      &&  
 common bytestring           { build-depends: bytestring         >= 0.10     && < 0.11   }
 common criterion            { build-depends: criterion          >= 1.4      && < 1.6    }
 common QuickCheck           { build-depends: QuickCheck         >= 2.10     && < 2.12   }
-common hedgehog             { build-depends: hedgehog           >= 0.5      && < 0.7    }
+common hedgehog             { build-depends: hedgehog           >= 0.6      && < 1.1    }
 common hspec                { build-depends: hspec              >= 2.3      && < 3      }
 common hw-bits              { build-depends: hw-bits            >= 0.4.0.0  && < 0.8    }
 common hw-hspec-hedgehog    { build-depends: hw-hspec-hedgehog  >= 0.1.0.4  && < 0.2    }
@@ -37,6 +37,7 @@ common vector               { build-depends: vector             >= 0.12     && <
 
 common config
   default-language:     Haskell2010
+  ghc-options:          -Wall -O2 -msse4.2
 
 library
   import:   base, config
@@ -66,7 +67,6 @@ library
   autogen-modules:      Paths_hw_excess
   other-modules:        Paths_hw_excess
   hs-source-dirs:       src
-  ghc-options:          -Wall -O2 -msse4.2
 
 test-suite hw-excess-test
   import:   base, config
@@ -80,7 +80,7 @@ test-suite hw-excess-test
   type:                 exitcode-stdio-1.0
   main-is:              Spec.hs
   hs-source-dirs:       test
-  ghc-options:          -Wall -threaded -rtsopts -with-rtsopts=-N
+  ghc-options:          -threaded -rtsopts -with-rtsopts=-N
   build-tool-depends:   hspec-discover:hspec-discover
   build-depends:        hw-excess
   autogen-modules:      Paths_hw_excess
@@ -105,6 +105,5 @@ benchmark bench
   type:           exitcode-stdio-1.0
   main-is:        Main.hs
   hs-source-dirs: bench
-  ghc-options:    -O2 -msse4.2
   build-depends:  hw-excess
   other-modules:  Paths_hw_excess
