@@ -86,7 +86,6 @@ test-suite hw-excess-test
   ghc-options:          -threaded -rtsopts -with-rtsopts=-N
   build-tool-depends:   hspec-discover:hspec-discover
   build-depends:        hw-excess
-  autogen-modules:      Paths_hw_excess
   other-modules:        HaskellWorks.Data.Excess.Internal.BranchlessSpec
                         HaskellWorks.Data.Excess.MinExcess0Spec
                         HaskellWorks.Data.Excess.MinExcess1Spec
@@ -96,7 +95,6 @@ test-suite hw-excess-test
                         HaskellWorks.Data.Excess.PartialMinExcess1Spec
                         HaskellWorks.Data.Excess.PartialMinMaxExcess0Spec
                         HaskellWorks.Data.Excess.PartialMinMaxExcess1Spec
-                        Paths_hw_excess
 
 benchmark bench
   import:               base, config
@@ -108,7 +106,6 @@ benchmark bench
   main-is:              Main.hs
   hs-source-dirs:       bench
   build-depends:        hw-excess
-  other-modules:        Paths_hw_excess
 
 test-suite doctest
   import:               base, config
