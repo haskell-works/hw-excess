@@ -3,11 +3,8 @@
 
 module Main where
 
-import Control.Monad
 import Criterion.Main
-import Data.List
 import Data.Word
-import Foreign
 import HaskellWorks.Data.Excess.MinMaxExcess0
 import HaskellWorks.Data.Excess.MinMaxExcess1
 import HaskellWorks.Data.Excess.PartialMinMaxExcess0
@@ -15,8 +12,6 @@ import HaskellWorks.Data.Excess.PartialMinMaxExcess1
 import HaskellWorks.Data.Excess.Triplet
 import HaskellWorks.Data.Vector.AsVector64
 
-import qualified Data.ByteString          as BS
-import qualified Data.ByteString.Internal as BSI
 import qualified Data.ByteString.Lazy     as LBS
 import qualified Data.Vector.Storable     as DVS
 
