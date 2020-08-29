@@ -12,8 +12,8 @@ import HaskellWorks.Data.Excess.PartialMinMaxExcess1
 import HaskellWorks.Data.Excess.Triplet
 import HaskellWorks.Data.Vector.AsVector64
 
-import qualified Data.ByteString.Lazy     as LBS
-import qualified Data.Vector.Storable     as DVS
+import qualified Data.ByteString.Lazy as LBS
+import qualified Data.Vector.Storable as DVS
 
 setupEnvExcess :: Int -> IO (DVS.Vector Word64)
 setupEnvExcess n = do
@@ -71,7 +71,7 @@ runMinMaxExcess1Vector v = do
   return ()
 
 makeBenchExcess :: IO [Benchmark]
-makeBenchExcess = return $
+makeBenchExcess = return
   [ env (setupEnvExcess (1024 * 1024)) $ \v -> bgroup "MinMaxExcess Vector"
     [ bench "MinMaxExcess0" (whnfIO (runMinMaxExcess0VectorElems v))
     , bench "MinMaxExcess1" (whnfIO (runMinMaxExcess1VectorElems v))
