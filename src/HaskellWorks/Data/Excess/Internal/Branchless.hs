@@ -13,7 +13,7 @@ import qualified HaskellWorks.Data.Branchless as BL
 minInt64 :: Int64 -> Int64 -> Int64
 minInt64 a b = fromIntegral ((m .&. fromIntegral a) .|. (comp m .&. fromIntegral b))
     where t = BL.ltWord64 (fromIntegral (a - minBound)) (fromIntegral (b - minBound))
-          m = 0 - t
+          m = negate t
 {-# INLINE minInt64 #-}
 
 minInt :: Int -> Int -> Int
@@ -23,7 +23,7 @@ minInt a b = fromIntegral (minInt64 (fromIntegral a) (fromIntegral b))
 maxInt64 :: Int64 -> Int64 -> Int64
 maxInt64 a b = fromIntegral ((m .&. fromIntegral a) .|. (comp m .&. fromIntegral b))
     where t = BL.gtWord64 (fromIntegral (a - minBound)) (fromIntegral (b - minBound))
-          m = 0 - t
+          m = negate t
 {-# INLINE maxInt64 #-}
 
 maxInt :: Int -> Int -> Int

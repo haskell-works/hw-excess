@@ -10,6 +10,8 @@ import qualified Data.Vector.Storable                            as DVS
 import qualified HaskellWorks.Data.Excess.Internal.Branchless    as BL
 import qualified HaskellWorks.Data.Excess.Internal.Partial.Table as T
 
+{- HLINT ignore "Reduce duplication" -}
+
 class PartialMinMaxExcess1 a where
   partialMinMaxExcess1 :: Int -> a -> Triplet
 
