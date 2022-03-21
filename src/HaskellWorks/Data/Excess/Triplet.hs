@@ -1,12 +1,17 @@
+{-# LANGUAGE CPP #-}
+
 {-# OPTIONS_GHC-funbox-strict-fields #-}
 
 module HaskellWorks.Data.Excess.Triplet
   ( Triplet(..)
   ) where
 
-import Control.Applicative (pure)
 import Foreign.Ptr         (castPtr)
 import Foreign.Storable    (Storable (..))
+
+#if !MIN_VERSION_base(4,13,0)
+import Control.Applicative (pure)
+#endif
 
 data Triplet = Triplet
   { tripletMinExcess :: !Int
@@ -26,4 +31,3 @@ instance Storable Triplet where
                    poke q (tripletMinExcess t)
                    pokeElemOff q 1 (tripletAllExcess t)
                    pokeElemOff q 2 (tripletMaxExcess t)
-
