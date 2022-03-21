@@ -1,12 +1,17 @@
+{-# LANGUAGE CPP #-}
+
 {-# OPTIONS_GHC-funbox-strict-fields #-}
 
 module HaskellWorks.Data.Excess.MinExcess
   ( MinExcess(..)
   ) where
 
-import Control.Applicative (pure)
 import Foreign.Ptr         (castPtr)
 import Foreign.Storable    (Storable (..))
+
+#if !MIN_VERSION_base(4,13,0)
+import Control.Applicative (pure)
+#endif
 
 data MinExcess = MinExcess
   { minExcessMin :: !Int
