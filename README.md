@@ -1,4 +1,4 @@
 # hw-excess
-[![CircleCI](https://circleci.com/gh/haskell-works/hw-excess.svg?style=svg)](https://circleci.com/gh/haskell-works/hw-excess)
+[![Binaries](https://github.com/haskell-works/hw-excess/actions/workflows/haskell.yml/badge.svg)](https://github.com/haskell-works/hw-excess/actions/workflows/haskell.yml)
 
 Support library library for rankselect.
